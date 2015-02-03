@@ -27,6 +27,7 @@ function build_taxonomies() {
 require_once("gallery.php");
 require_once("testimonial.php");
 require_once("team.php");
+require_once("newsletter.php");
 require_once("faq.php");
 require_once("event.php");
 require_once("history.php");

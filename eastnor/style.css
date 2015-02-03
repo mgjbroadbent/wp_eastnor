@@ -3818,3 +3818,14 @@ display:none;
 #nav-sub-container {
 display: none;
 }
+
+/* Eastnor Express */
+.ee-head {
+	text-align: center;
+}
+
+.ee-container {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
