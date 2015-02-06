@@ -1,4 +1,6 @@
-<?php get_header();
+<?php
+  wp_enqueue_style('es_newsletter');
+  get_header();
 /*
 Template Name: es_newsletter Template
 */

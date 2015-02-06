@@ -1,0 +1,54 @@
+/* Eastnor Express */
+.ee-head {
+  text-align: center;
+}
+
+.ee-container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+h1.ee-head {
+  font-family: Raleway,san-serif !important;
+  font-size: 52px;
+  font-weight: 300;
+}
+
+h2.ee-head {
+  font-family: Raleway,san-serif !important;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.textwidget {
+  font-family: "Open Sans",Arial;
+}
+
+.es-housepoints {
+  text-align: center;
+  font-size: 24px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.es-housepoints h3 {
+  font-size: 32px;
+  color: #000;
+  margin-bottom: 10px
+}
+
+.es-housepoints-castle {
+  background-color: #0070C0;
+}
+
+.es-housepoints-deerpark {
+  background-color: #00B050;
+}
+
+.es-housepoints-landrover {
+  background-color: #FFE068;
+}
+
+.es-housepoints-obelisk {
+  background-color: #FF0000;
+}

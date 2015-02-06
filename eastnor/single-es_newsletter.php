@@ -1,4 +1,7 @@
-<?php get_header();?>
+<?php
+  wp_enqueue_style('es_newsletter');
+  get_header();
+?>
     <div id="content-container">
         <div id="content" class="clearfix">
             <div id="full-width">

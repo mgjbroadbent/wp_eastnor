@@ -40,4 +40,9 @@ function es_newsletter() {
 	register_post_type( 'es_newsletter' , $args );
 }
 
+function es_newsletter_header_hook( $name ) {
+	wp_register_style( 'es_newsletter', get_template_directory_uri() . '/style/es_newsletter.css', array(), '1.0' );
+}
+add_action( 'wp_enqueue_scripts', 'es_newsletter_header_hook' );
+
 ?>
