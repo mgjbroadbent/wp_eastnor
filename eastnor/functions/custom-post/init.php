@@ -12,6 +12,8 @@ function admin_init(){
 	add_meta_box("event_meta", "Event Options", "event_meta", "event", "normal", "low");	
 	add_meta_box("partner_meta", "Partner Options", "partner_meta", "partner", "normal", "low");
 	add_meta_box("history_meta", "History Options", "history_meta", "history", "normal", "low");
+// ... Get codex for this ...
+	add_meta_box("newsletter_meta", "Newsletter Data", "newsletter_meta", "es_newsletter", "normal", "low");
 }
 
 add_action( 'init', 'build_taxonomies', 0 );  
@@ -32,4 +34,31 @@ require_once("faq.php");
 require_once("event.php");
 require_once("history.php");
 require_once("partner.php");
+
+/* Shortcodes */
+// [esmeta foo="foo-value"]
+
+function esmeta_shortcode( $atts ) {
+    global $post;
+    $a = shortcode_atts( array(
+        'meta' => '',
+    ), $atts );
+    
+    if (strlen($a['meta']) == 0) {
+	return '<!-- no meta-->';
+    }
+
+    $custom = get_post_custom($post->ID);
+    if (!array_key_exists($a['meta'], $custom)) {
+	return '<!-- unknown meta-->';
+    }
+    
+    return '<span>'.$custom[$a['meta']][0].'</span>';
+}
+
+function esmeta_init() {
+    add_shortcode('es', 'esmeta_shortcode');
+}
+add_action('init', 'esmeta_init');  
+
 ?>

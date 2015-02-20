@@ -6,15 +6,13 @@
         <div id="content" class="clearfix">
             <div id="full-width">
                  <?php get_template_part('breadcrumbs');?> 
-<h1>BETA NEWSLETTERS</h1>
-
 				 <?php if (have_posts()) : ?>
                 <article class="static-page ee-container">
 				 <?php while ( have_posts() ) : the_post(); ?>
                     <div style="min-height:125px">
                         <img src="/wp-content/themes/eastnor/images/logo_deer.png" style="float:right">
                         <h1 class="ee-head">Eastnor Express</h1>
-                        <h2 class="ee-head">&quot;To Inspire and Achieve&quot;</h2>
+                        <h2 class="ee-head">&ldquo;To Inspire and Achieve&rdquo;</h2>
                     </div>
                     <div class="clearfix">
                         <p style="text-align:right"><b>Edition: <?php the_title();?></b></p>

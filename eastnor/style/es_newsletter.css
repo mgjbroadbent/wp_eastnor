@@ -24,17 +24,41 @@ h2.ee-head {
   font-family: "Open Sans",Arial;
 }
 
+.widget-title {
+  padding-top: 10px;
+}
+
+.es-title h3 {
+    font-weight: 900;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.es-notice {
+    padding: 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #0c0c0c;
+    margin-bottom: 15px;
+}
+
+.es-notice h3 {
+    padding-top: 0;
+    font-size: 18px;
+}
+
 .es-housepoints {
   text-align: center;
   font-size: 24px;
-  padding-top: 5px;
   padding-bottom: 5px;
+  border-radius: 25px;
+  box-shadow: 0 0 15px #888888;
 }
 
 .es-housepoints h3 {
   font-size: 32px;
   color: #000;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  padding-top: 0;
 }
 
 .es-housepoints-castle {
@@ -51,4 +75,8 @@ h2.ee-head {
 
 .es-housepoints-obelisk {
   background-color: #FF0000;
+}
+
+.potw-year h3 {
+  padding-top: 0;
 }

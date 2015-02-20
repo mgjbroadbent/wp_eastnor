@@ -19,12 +19,11 @@
 	    bloginfo('name'); echo " - "; bloginfo('description');
 	endif;
 	?>" />	
-	<style type="text/css" media="all">@import "<?php bloginfo( 'stylesheet_url' ); ?>";</style>
+	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style/prettyPhoto.css" />
-	<link href='http://fonts.googleapis.com/css?family=Raleway:400,700,300,900' rel='stylesheet' type='text/css' />
-
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway:400,700,300,900" />
 	
-		<style type="text/css" media="all">@import "<?php echo get_template_directory_uri(); ?>/style-blue.css";</style>
+	<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style-blue.css" />
 <!--[if IE 8]>
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/ie8.css" />
 <![endif]-->
