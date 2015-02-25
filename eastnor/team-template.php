@@ -56,7 +56,7 @@ $term_obj =  get_terms($taxonomy,$args);
                             <li <?php if ($i % 3 == 0) : echo 'class="last"'; endif;?>>
                                 <a href="<?php the_permalink();?>">
                                     <img src="<?php echo $img['0'];?>" data-retina="<?php echo $imgretina['0'];?>" alt="<?php the_title();?>" />
-                                    <strong><?php the_title();?></strong>
+                                    <strong class="clearfix"><?php the_title();?></strong>
                                 </a>
                             </li>
 				<?php $i++;endwhile;?>                         
