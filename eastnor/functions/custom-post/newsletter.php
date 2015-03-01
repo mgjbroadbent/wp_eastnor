@@ -166,4 +166,6 @@ function save_newsletter(){
   		update_post_meta($post->ID, "es_pw_head",      $_POST["es_pw_head"]);
   	}
 }
+
+require_once('newsletter-prebuilt-layout-1.php')
 ?>
