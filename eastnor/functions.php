@@ -1,7 +1,30 @@
 <?php
 
+function es_style_version($styles)
+{
+	//use release date for version
+	$styles->default_version = "20150301";
+}
+add_action("wp_default_styles", "es_style_version");
+
+
 //Load Localitation Path
 load_theme_textdomain( 'schoolfun', get_template_directory() . '/languages' );
+
+function es_styles_init() {
+	global $wp_styles;
+
+	$file_dir=get_bloginfo('template_directory');
+
+	wp_enqueue_style("es-style", get_stylesheet_uri(), false, '1.0');
+	wp_enqueue_style("es-style-blue", $file_dir."/style-blue.css", array('es-style'), '1.0');
+	wp_enqueue_style("es-font-raleway", "//fonts.googleapis.com/css?family=Raleway:400,700,300,900", false, false);
+
+	wp_enqueue_style("es-ie8", $file_dir."/ie8.css", array('es-style'), '1.0');
+	$wp_styles->add_data('es-ie8', 'conditional', 'IE 8');
+}
+
+add_action( 'wp_enqueue_scripts', 'es_styles_init' );
 
 function schoolfun_add_javascripts() {
 
@@ -10,18 +33,19 @@ function schoolfun_add_javascripts() {
   wp_enqueue_script( 'jquery-effects-fade' );
   wp_enqueue_script( 'jquery-ui-accordion' );
 
-  wp_enqueue_script( 'parallax',    get_template_directory_uri('template_directory') . '/script/jquery.parallax-1.1.3.js', array( 'jquery' ) );
-  wp_enqueue_script( 'localscroll', get_template_directory_uri('template_directory') . '/script/jquery.localscroll-1.2.7-min.js', array( 'jquery' ) );
-  wp_enqueue_script( 'scrollTo',    get_template_directory_uri('template_directory') . '/script/jquery.scrollTo-1.4.2-min.js', array( 'jquery' ) );
-  wp_enqueue_script( 'prettyphoto', get_template_directory_uri('template_directory') . '/script/jquery.prettyPhoto.js', array( 'jquery' ) );
-  wp_enqueue_script( 'flexslider',  get_template_directory_uri('template_directory') . '/script/jquery.flexslider.js', array( 'jquery' ) );
-  wp_enqueue_script( 'retina',      get_template_directory_uri('template_directory') . '/script/jquery.retina.js', array( 'jquery' ) );
-  wp_enqueue_script( 'validation',  get_template_directory_uri('template_directory') . '/script/jquery.validate.js', array( 'jquery' ) );
-  wp_enqueue_script( 'modernizr',   get_template_directory_uri('template_directory') . '/script/modernizr.js', array( 'jquery' ) );
+  wp_enqueue_script( 'parallax',    get_template_directory_uri('template_directory') . '/script/jquery.parallax-1.1.3.js', array( 'jquery' ), '1.1.3' );
+  wp_enqueue_script( 'localscroll', get_template_directory_uri('template_directory') . '/script/jquery.localscroll-1.2.7-min.js', array( 'jquery' ), '1.2.7' );
+  wp_enqueue_script( 'scrollTo',    get_template_directory_uri('template_directory') . '/script/jquery.scrollTo-1.4.2-min.js', array( 'jquery' ), '1.4.2' );
+  wp_enqueue_script( 'prettyphoto', get_template_directory_uri('template_directory') . '/script/jquery.prettyPhoto.js', array( 'jquery' ), '3.1.5' );
+  wp_enqueue_script( 'flexslider',  get_template_directory_uri('template_directory') . '/script/jquery.flexslider.js', array( 'jquery' ), '2.1' );
+  wp_enqueue_script( 'retina',      get_template_directory_uri('template_directory') . '/script/jquery.retina.js', array( 'jquery' ), '0.1' );
+  wp_enqueue_script( 'validation',  get_template_directory_uri('template_directory') . '/script/jquery.validate.js', array( 'jquery' ), '1.7' );
+  wp_enqueue_script( 'modernizr',   get_template_directory_uri('template_directory') . '/script/modernizr.js', array( 'jquery' ), '2.6.2' );
   wp_enqueue_script( 'comment-reply' ); 
 }
+
 if (!is_admin()) {
-  add_action( 'wp_print_scripts', 'schoolfun_add_javascripts' ); 
+  add_action( 'wp_enqueue_scripts', 'schoolfun_add_javascripts' );
 }
 else {
   wp_enqueue_script('jquery-ui-core');
@@ -1410,13 +1434,17 @@ add_theme_page(__('Theme Options','schoolfun'), __('Theme Options','schoolfun'),
 }
 
 function schoolfun_add_init() {
-$file_dir=get_bloginfo('template_directory');
-wp_enqueue_style("functions", $file_dir."/functions/functions.css", false, "1.0", "all");
-wp_enqueue_script('jquery'); 
-wp_enqueue_script('jquery-ui-core'); 
-wp_enqueue_script('jquery-ui-tabs'); 
-wp_enqueue_style("tabs", $file_dir."/functions/jquery-ui.css", false, "1.0", "all");
+	global $wp_styles;
+
+	$file_dir=get_bloginfo('template_directory');
+
+	wp_enqueue_style("functions", $file_dir."/functions/functions.css", false, "1.0", "all");
+	wp_enqueue_script('jquery');
+	wp_enqueue_script('jquery-ui-core');
+	wp_enqueue_script('jquery-ui-tabs');
+	wp_enqueue_style("tabs", $file_dir."/functions/jquery-ui.css", array('jquery'), "1.8.6", "all");
 }
+
 function schoolfun_admin() { ?>
 <script type="text/javascript">
    jQuery(document).ready(function() {
@@ -1710,4 +1738,5 @@ add_image_size( 'testimonial-thumb-retina', 400, 560, true );
 /* Call Custom Widget
 ============================================================*/
 require_once(get_template_directory()."/functions/widget/init.php");
+
 ?>

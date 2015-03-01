@@ -18,16 +18,7 @@
 	else :
 	    bloginfo('name'); echo " - "; bloginfo('description');
 	endif;
-	?>" />	
-	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-	<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style/prettyPhoto.css" />
-	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway:400,700,300,900" />
-	
-	<link rel="stylesheet" type="text/css" media="all" href="<?php echo get_template_directory_uri(); ?>/style-blue.css" />
-<!--[if IE 8]>
-<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/ie8.css" />
-<![endif]-->
-	
+	?>" />
 
 	<?php   
 	 $options = get_option("sf_favicon");
@@ -100,7 +91,6 @@
 	</script>
 </head>
 <body <?php if ( 'posts' == get_option( 'show_on_front' ) ) : body_class(); else: body_class('slideshow'); endif; ?>>
-<h1>BETA SITE!</h1>
 	<header id="main-header" class="clearfix">
         <div id="header-full" class="clearfix">
             <div id="header" class="clearfix">
