@@ -26,6 +26,11 @@ $term_obj =  get_terms($taxonomy,$args);
                 <article class="static-page">                    
 				<?php get_template_part('menu-team-category');?> 
                     <div id="team-container">	
+					   <?php if (have_posts()):?>
+					   <?php while ( have_posts() ) : the_post();?>
+                        <h1 id="main-title"><?php the_title();?></h1>
+						<?php endwhile;?>
+						<?php endif;?>
 							<?php 
 				$orderteam = get_option('sf_team_order');	
 				if ($orderteam == '') $orderteamby = "DESC";
