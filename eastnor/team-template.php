@@ -26,17 +26,11 @@ $term_obj =  get_terms($taxonomy,$args);
                 <article class="static-page">                    
 				<?php get_template_part('menu-team-category');?> 
                     <div id="team-container">	
-					   <?php if (have_posts()):?>
-					   <?php while ( have_posts() ) : the_post();?>
-                        <h1 id="main-title"><?php the_title();?></h1>
-                        <?php the_content();?>
-						<?php endwhile;?>
-						<?php endif;?>
 							<?php 
 				$orderteam = get_option('sf_team_order');	
 				if ($orderteam == '') $orderteamby = "DESC";
 				if ($orderteam =="Newest First") $orderteamby = "DESC"; else $orderteamby = "ASC";
-				$loop = new WP_Query(array('post_type' => 'team', 'order' => $orderteamby)); 
+				$loop = new WP_Query(array('post_type' => 'team', 'order' => $orderteamby, 'posts_per_page' => -1));
 
 				if ($loop->have_posts()):?>
                         <ul id="list-team">
