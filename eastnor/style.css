@@ -3805,7 +3805,7 @@ background-image:url('images/news-widget-title-orange.png');
 background-repeat:no-repeat;
 }
 body.home #sidebar #tribe-events-list-widget-3 .widget-wrapper {
-    height: 358px !important;
+    padding-bottom: 20px;
 }
 
 #breadcrumbs {
